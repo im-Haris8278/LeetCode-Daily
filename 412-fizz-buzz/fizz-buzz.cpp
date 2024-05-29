@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<string> fizzBuzz(int n) {
+    vector<string> fizzBuzz(int n) 
+    {
         vector<string> result;
 
         for (int i = 1; i <= n; ++i)
