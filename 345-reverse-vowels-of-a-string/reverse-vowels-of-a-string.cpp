@@ -1,27 +1,31 @@
 class Solution {
 public:
+    bool checkVowels(char c)
+    {
+        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+    }
+
     string reverseVowels(string s) 
     {
-        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+        int left = 0, right = s.size() - 1;
 
-        int i = 0;
-        int j = s.length() - 1;
-
-        while (i < j)
+        while (left < right)
         {
-            while (i < j && vowels.find(s[i]) == vowels.end())
+            if (!checkVowels(s[left]))
             {
-                i++;
+                left++;
             }
 
-            while (i < j && vowels.find(s[j]) == vowels.end())
+            else if (!checkVowels(s[right]))
             {
-                j--;
+                right--;
             }
 
-            if (i < j)
+            else
             {
-                swap(s[i++], s[j--]);
+                swap(s[left], s[right]);
+                left++;
+                right--;
             }
         }
 
